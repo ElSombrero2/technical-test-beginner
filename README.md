@@ -15,6 +15,7 @@ Before starting the project, create .env.local and .env files
 # Server Variables
 APP_PORT = 8080
 APP_DATABASE = mongodb://root:technical-test@127.0.0.1:27020/my-database?authSource=admin&readPreference=primary&ssl=false
+
 ```
 
 ## if you use docker you must need .env
