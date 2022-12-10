@@ -13,10 +13,9 @@ Before starting the project, create .env.local and .env files
 ## .env.local example
 ```
 # Server Variables
-APP_PORT = # app port
-APP_DATABASE = # database connection string example: mongodb://root:technical-test@127.0.0.1:27020/
-# if you usethe docker database don't forget to specify that query:
-# ?authSource=admin&readPreference=primary&ssl=false
+APP_PORT = 8080
+APP_DATABASE = mongodb://root:technical-test@127.0.0.1:27020/my-database?authSource=admin&readPreference=primary&ssl=false
+
 ```
 
 ## if you use docker you must need .env
@@ -27,8 +26,8 @@ MONGODB_PASSWORD = technical-test
 MONGODB_LOCAL_PORT = 27020
 
 # Server Variables
-APP_PORT = 8080
-APP_DATABASE = mongodb://username:password@dabatase:27017/
+EXPOSED_PORT = 8080
+APP_DATABASE = mongodb://root:technical-test@database:27017/app-database-docker
 ```
 ## Install Packages
 
