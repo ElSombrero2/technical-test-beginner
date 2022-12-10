@@ -23,7 +23,7 @@ export class EmployeeService{
     }
 
     public async findByDepartment(department: string): Promise<DataResponse<FindEmployeeDto[]>>{
-        try{  return createResponse(StatusCodes.OK, (await this.Model.find({department})) as FindEmployeeDto[]) }
+        try{  return createResponse(StatusCodes.OK, (await this.Model.find({department: {$regex: new RegExp(`^${department}`, 'i')}})) as FindEmployeeDto[]) }
         catch(e){  throw createResponse(StatusCodes.NOT_FOUND, e) }
     }
 

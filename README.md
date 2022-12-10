@@ -1,5 +1,7 @@
 # Technical Test: Beginner
 This project is a template base clean code project created for a technical test by RAKOTONDRASOA Nirilala.
+# Documentation
+Documentation: OpenAPI Documentation is server on /api endpoint
 # Versions
 
 Node 16+
