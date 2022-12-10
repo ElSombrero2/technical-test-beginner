@@ -13,6 +13,8 @@ Before starting the project, create .env.local and .env files
 # Server Variables
 APP_PORT = # app port
 APP_DATABASE = # database connection string example: mongodb://root:technical-test@127.0.0.1:27020/
+# if you usethe docker database don't forget to specify that query:
+# ?authSource=admin&readPreference=primary&ssl=false
 ```
 
 ## if you use docker you must need .env
