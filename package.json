@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon -r dotenv/config src/index.ts dotenv_config_path=.env.local",
-    "start:local": "node -r dotenv/config dist/index.js dotenv_config_path=.env.local",
+    "start:local": "node -r dotenv/config dist/src/index.js dotenv_config_path=.env.local",
     "start:docker": "node dist/src/index.js",
     "test": "npm run build && jest dist",
     "build": "tsc"
