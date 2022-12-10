@@ -27,7 +27,7 @@ MONGODB_LOCAL_PORT = 27020
 
 # Server Variables
 EXPOSED_PORT = 8080
-APP_DATABASE = mongodb://root:technical-test@database:27017/app-database-docker
+APP_DATABASE = mongodb://root:technical-test@database:27017/app-database-docker?authSource=admin&readPreference=primary&ssl=false
 ```
 ## Install Packages
 
