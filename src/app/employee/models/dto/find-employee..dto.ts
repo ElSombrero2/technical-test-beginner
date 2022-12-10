@@ -1,4 +1,4 @@
-export interface FindUserDto{
+export interface FindEmployeeDto{
     _id: string
     createAt?: string
     updatedAt?: string 
