@@ -4,7 +4,7 @@ import { FindEmployeeDto } from '../models/dto/find-employee..dto'
 import { UpdateEmployeeDto } from '../models/dto/update-employee..dto'
 import { EmployeeService } from '../service/employee.service'
 
-export class UserController {
+export class EmployeeController {
 
     public constructor(private service: EmployeeService){}
 
