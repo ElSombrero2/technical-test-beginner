@@ -15,7 +15,7 @@ const EmployeeSchema = new mongoose.Schema({
     }
 }, {timestamps: true})
 
-const EmployeeModel = mongoose.model('empoyee', EmployeeSchema)
+const EmployeeModel = mongoose.model('employee', EmployeeSchema)
 declare type Employee = typeof EmployeeModel
 
 export { Employee, EmployeeModel, EmployeeSchema }
