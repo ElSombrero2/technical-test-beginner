@@ -1,3 +1,198 @@
 {
-    
+	"components": {
+		"examples": {},
+		"headers": {},
+		"parameters": {},
+		"requestBodies": {},
+		"responses": {},
+		"schemas": {
+            "CreateEmployeeDto": {
+				"properties": {
+					"name": { "type": "string" },
+                    "firstname": { "type": "string" },
+                    "department": { "type": "string" }
+				},
+				"required": ["name", "firstname", "department"],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Message": {
+				"properties": {
+					"message": {
+						"type": "string"
+					},
+                    "data": { "type": "object" }
+				},
+				"required": ["message"],
+				"type": "object",
+				"additionalProperties": false
+			},
+            "FindEmployeeDto": {
+				"properties": {
+                    "_id": {"type": "string"},
+					"name": { "type": "string" },
+                    "firstname": { "type": "string" },
+                    "department": { "type": "string" },
+                    "createdAt": { "type": "string" },
+                    "updatedAt": { "type": "string" }
+				},
+				"required": ["name", "firstname", "department"],
+				"type": "object",
+				"additionalProperties": false
+			},
+            "UpdateEmployeeDto": {
+				"properties": {
+					"name": { "type": "string" },
+                    "firstname": { "type": "string" },
+                    "department": { "type": "string" }
+				},
+				"type": "object",
+				"additionalProperties": false
+			}
+		},
+		"securitySchemes": {}
+	},
+	"info": {
+		"title": "Beginner Technical Test Project",
+		"version": "1.0.0",
+		"license": {
+			"name": "ISC"
+		},
+		"contact": {},
+        "description": "This project is a technical Test project on beginner Level"
+	},
+	"openapi": "3.0.0",
+	"paths": {
+		"/employee": {
+			"post": {
+				"tags": ["Employee"],
+				"operationId": "Employee-create",
+                "description": "Create an Employee",
+				"responses": {
+					"201": {
+						"description": "Created",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/FindEmployeeDto"
+								}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/CreateEmployeeDto"
+							}
+						}
+					}
+				}
+			},
+            "get": {
+				"tags": ["Employee"],
+				"operationId": "Employee-findAll",
+                "description": "Fetch all Employees",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+                                    "type": "array",
+									"items": {
+                                        "$ref": "#/components/schemas/FindEmployeeDto"
+                                    }
+								}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": []
+			}
+		},
+        "/employee/{id}": {
+			"put": {
+				"tags": ["Employee"],
+				"operationId": "Employee-update",
+                "description": "Update an Employee by id",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Message"
+								}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Empoyee's Id",
+                        "required": true,
+                        "schema": { "type": "string" },
+                        "style": "simple"
+                    }
+                ],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/UpdateEmployeeDto"
+							}
+						}
+					}
+				}
+			}
+		},
+        "/employee/{department}": {
+			"get": {
+				"tags": ["Employee"],
+				"operationId": "Employee-findByDepartment",
+                "description": "Fetch all Employees by Department",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/FindEmployeeDto"
+                                    }
+								}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": [
+                    {
+                        "name": "department",
+                        "in": "path",
+                        "description": "Department Name",
+                        "required": true,
+                        "schema": { "type": "string" },
+                        "style": "simple"
+                    }
+                ]
+			}
+		}
+	},
+	"servers": [
+		{
+			"url": "/"
+		}
+	]
 }
